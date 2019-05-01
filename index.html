@@ -5,7 +5,12 @@
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
     <title>joyica.xia的阅读之旅</title>
+    <meta name="keywords" content="joyica,xia,读书,阅读,成长" />
+    <meta name="discription" content="joyica的读书经历和成长记录" />
+    <meta name="robots" content="all" />
+    <meta name="author" content="1104639669@qq.com" />
   </head>
+
   <body>
     <div id="app">
       <el-header class="header">
@@ -36,9 +41,9 @@
                           <img :src="book.cover" class="cover" />
                         </div>
                       </el-col>
-                      <el-col :span="20"
-                        ><div class="book_name"><span v-if="!book.done">在读:</span>《{{ book.name }}》</div></el-col
-                      >
+                      <el-col :span="20">
+                        <div class="book_name"><span v-if="!book.done">在读:</span>《{{ book.name }}》</div>
+                      </el-col>
                     </el-row>
                   </el-card>
                 </el-timeline-item>
@@ -151,20 +156,24 @@
     });
   </script>
   <style>
-    body{
-      background-color:#dceffe;
+    body {
+      background-color: #dceffe;
     }
+
     .header {
       text-align: center;
     }
+
     .cover {
       max-width: 100%;
       max-height: 172px;
     }
+
     .book_name {
       font-size: 30px;
       line-height: 167px;
     }
+
     .el-timeline-item__timestamp.is-top {
       font-size: 18px;
       font-weight: bold;
