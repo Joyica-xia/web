@@ -1,12 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>测试</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <title>joyica.xia的阅读之旅</title>
   </head>
   <body>
-    编写此文件用于测试
+    <div id="app">
+      <el-header class="header">
+        <el-row>
+          <el-col :span="24">
+            <el-card>
+              <h1>阅读之旅</h1>
+            </el-card>
+          </el-col>
+        </el-row>
+      </el-header>
+      <el-main>
+        <el-row>
+          <el-col :span="24">
+            <el-card>
+              <el-timeline :reverse="reverse">
+                <el-timeline-item
+                  v-for="(book,index) in books"
+                  :key="index"
+                  :timestamp="book.timestamp"
+                  placement="top"
+                  :color="book.done?'#0bbd87':''"
+                >
+                  <el-card>
+                    <el-row>
+                      <el-col :span="3"><img :src="book.cover" class="cover"/></el-col>
+                      <el-col :span="7"
+                        ><div class="book_name"><span v-if="!book.done">在读:</span>《{{ book.name }}》</div></el-col
+                      >
+                    </el-row>
+                  </el-card>
+                </el-timeline-item>
+              </el-timeline>
+            </el-card>
+          </el-col>
+        </el-row>
+      </el-main>
+    </div>
   </body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          reverse: true,
+          books: [
+            {
+              name: '1984',
+              timestamp: '2019-01-21',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s4371408.jpg',
+              done: 1
+            },
+            {
+              name: '月亮与六便士',
+              timestamp: '2019-01-28',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s29634528.jpg',
+              done: 1
+            },
+            {
+              name: '朝花夕拾',
+              timestamp: '2019-02-18',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s27970504.jpg',
+              done: 1
+            },
+            {
+              name: '钝感力',
+              timestamp: '2019-02-11',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s3232018.jpg',
+              done: 1
+            },
+            {
+              name: '我是猫',
+              timestamp: '2019-02-18',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s27245349.jpg',
+              done: 1
+            },
+            {
+              name: '飞鸟集',
+              timestamp: '2019-02-25',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s1742057.jpg',
+              done: 1
+            },
+            {
+              name: '培根随笔',
+              timestamp: '2019-03-04',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s6142783.jpg',
+              done: 1
+            },
+            {
+              name: '谁动了我的奶酪',
+              timestamp: '2019-03-11',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s4390783.jpg',
+              done: 1
+            },
+            {
+              name: '沉默的大多数',
+              timestamp: '2019-03-18',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s1727466.jpg',
+              done: 1
+            },
+            {
+              name: '黑客与画家',
+              timestamp: '2019-03-25',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s4669554.jpg',
+              done: 1
+            },
+            {
+              name: '孙子兵法',
+              timestamp: '2019-04-11',
+              cover: 'https://img1.doubanio.com/view/subject/l/public/s2142329.jpg',
+              done: 1
+            },
+            {
+              name: '看见',
+              timestamp: '2019-04-15',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s24468373.jpg',
+              done: 1
+            },
+            {
+              name: '野火集',
+              timestamp: '2019-04-29',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s4390060.jpg',
+              done: 1
+            },
+            {
+              name: '牛奶可乐经济学',
+              timestamp: '2019-05-06',
+              cover: 'https://img3.doubanio.com/view/subject/l/public/s2955123.jpg',
+              done: 0
+            }
+          ]
+        };
+      }
+    });
+  </script>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .cover {
+      width: 115px;
+      max-height: 172px;
+    }
+    .book_name {
+      font-size: 30px;
+      line-height: 167px;
+    }
+  </style>
 </html>
