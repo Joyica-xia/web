@@ -12,7 +12,7 @@
         <el-row>
           <el-col :span="24">
             <el-card>
-              <h1>阅读之旅</h1>
+              <h1>Joyica阅读之旅</h1>
             </el-card>
           </el-col>
         </el-row>
@@ -31,8 +31,8 @@
                 >
                   <el-card>
                     <el-row>
-                      <el-col :span="3"><img :src="book.cover" class="cover"/></el-col>
-                      <el-col :span="7"
+                      <el-col :span="4"><img :src="book.cover" class="cover"/></el-col>
+                      <el-col :span="20"
                         ><div class="book_name"><span v-if="!book.done">在读:</span>《{{ book.name }}》</div></el-col
                       >
                     </el-row>
